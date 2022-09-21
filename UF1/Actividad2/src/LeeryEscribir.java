@@ -1,14 +1,21 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class LeeryEscribir {
     //<editor-fold desc="Cositas">
     private String archivo;
+    private String texto;
+
 
     public LeeryEscribir(String archivo) {
         this.archivo = archivo;
+    }
+
+    public String getTexto() {
+        return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
     }
 
     public String getArchivo() {
@@ -54,6 +61,13 @@ public class LeeryEscribir {
             e.printStackTrace();
         } }
 
+    public void escribir (String texto) throws IOException {
+        FileWriter fw = new FileWriter("out.txt", true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(texto + " \n ");
+        bw.close();
+
+    }
 
 
 }
